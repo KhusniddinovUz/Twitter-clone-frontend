@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { getLastUsers, searchUsers } from '../../action/users';
+import { getLastUsers, searchUsers, clearSearchUser } from '../../action/users';
 import { useDispatch, useSelector } from 'react-redux';
 import { v4 } from 'uuid';
 import FoundUsers from './FoundUsers';
@@ -12,6 +12,9 @@ const Trends = () => {
   const searchHandler = (e) => {
     if (e.target.value.replace(/ /g, '') !== '')
       dispatch(searchUsers(e.target.value));
+    else {
+      dispatch(clearSearchUser());
+    }
   };
 
   useEffect(() => {
