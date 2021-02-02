@@ -2,11 +2,14 @@ import React from 'react';
 import Nav from './Nav';
 import { nav } from '../data/nav';
 import { v4 } from 'uuid';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { changeNav } from '../../action/nav';
 
 const Navbar = ({ props }) => {
+  const dispatch = useDispatch();
   const onClick = () => {
     props.history.push('/home');
+    dispatch(changeNav('Home'));
   };
   const active = useSelector((state) => state.nav.activeNav);
   return (
