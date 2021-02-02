@@ -1,11 +1,12 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { v4 } from 'uuid';
 
 const FoundUsers = () => {
   const users = useSelector((state) => state.users.foundusers);
   return (
-    <div className='FoundUsers'>
-      {users && users.map((user) => <div>{user.username}</div>)}
+    <div className='FoundUsers container mb-1'>
+      {users && users.map((user) => <div key={v4()}>{user.username}</div>)}
     </div>
   );
 };

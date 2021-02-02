@@ -86,6 +86,14 @@ $gray: #cbd6e2;
       }
     }
     .Trends {
+      .FoundUsers {
+        border-radius: 3px;
+        background: white;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        & > div {
+          border-bottom: 1px solid $gray;
+        }
+      }
       input {
         border: none;
         outline: none;
