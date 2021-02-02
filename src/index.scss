@@ -87,6 +87,7 @@ $gray: #cbd6e2;
     }
     .Trends {
       .FoundUsers {
+        display: none;
         border-radius: 3px;
         background: white;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -101,6 +102,9 @@ $gray: #cbd6e2;
         margin: auto;
         border-radius: 30px;
         padding: 10px 20px;
+        &:focus ~ .FoundUsers {
+          display: block;
+        }
       }
       > div {
         background: #ebeef0;
