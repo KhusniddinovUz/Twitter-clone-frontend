@@ -22,7 +22,11 @@ const App = () => {
     <Router>
       <div className='App'>
         <Alerts />
-        {!auth.isAuthenticated ? <Redirect to='/login' /> : ''}
+        {!auth.isAuthenticated ? (
+          <Redirect to='/login' />
+        ) : (
+          <Redirect to='/home' />
+        )}
         <Switch>
           <Route path='/home' component={Main} />
           <Route exact path='/register' component={Signup} />
