@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+//Variables
+$maincolor: #228cf5;
+$hovercolor: #e9f3fe;
+$gray: #cbd6e2;
+
+* {
+  font-family: 'Lato';
+}
+
+.App {
+  .SignUp {
+    small {
+      opacity: 0.7;
+    }
+  }
+
+  .Main {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1.5fr;
+    .centr {
+      border-left: 1px solid $gray;
+      border-right: 1px solid $gray;
+    }
+
+    .Navbar {
+      font-weight: 700;
+      height: 100vh;
+
+      ul {
+        padding: 0;
+        a {
+          text-decoration: none;
+          color: inherit;
+        }
+        .logo {
+          padding: 0;
+          text-align: center;
+        }
+        li {
+          font-size: 20px;
+          border: none;
+          display: inline-block !important;
+          list-style-type: none;
+          padding: 10px 30px 10px 10px;
+          border-radius: 40px;
+          margin-top: 10px;
+          cursor: pointer;
+
+          &:hover {
+            background: $hovercolor;
+            color: $maincolor;
+
+            i {
+              color: $maincolor !important;
+            }
+            a {
+              color: $maincolor;
+            }
+          }
+
+          i {
+            color: #25292e;
+            border: #25292e;
+            font-size: 25px !important;
+            margin-right: 15px;
+          }
+          #twitter {
+            color: $maincolor;
+            font-size: 30px;
+            border-radius: 50%;
+            padding: 10px;
+            margin: 0;
+
+            &:hover {
+              background: $hovercolor;
+            }
+          }
+
+          button {
+            width: 200px;
+            font-weight: 700;
+          }
+        }
+      }
+    }
+    .Trends {
+      input {
+        border: none;
+        outline: none;
+        background: #ebeef0;
+        margin: auto;
+        border-radius: 30px;
+        padding: 10px 20px;
+      }
+      > div {
+        background: #ebeef0;
+        border-radius: 20px;
+        width: 70%;
+        font-size: 20px;
+        padding: 10px 30px;
+        font-weight: 700;
+        text-align: left;
+      }
+      #lastusers {
+        span {
+          border-bottom: 1px solid black;
+          display: block;
+        }
+        div {
+          border-bottom: 1px solid $gray;
+          padding: 10px;
+          &:last-child {
+            border: none;
+          }
+        }
+      }
+    }
+    .Empty {
+      div {
+        margin-top: 20px;
+        font-size: 20px;
+      }
+    }
+
+    .TweetHome {
+      height: 200px;
+      border-bottom: 1px solid $gray;
+
+      & > div {
+        padding: 10px 20px;
+        font-size: 20px;
+        border-bottom: 1px solid $gray;
+        font-weight: 700;
+      }
+
+      form {
+        textarea {
+          margin-left: 30px;
+          width: 80%;
+          resize: none;
+          border: none;
+          outline: none;
+          font-size: 20px;
+
+          &::placeholder {
+            font-size: 20px;
+          }
+        }
+      }
+    }
+
+    .Profile {
+      border-right: 1px solid $gray;
+      > .container {
+        font-size: 20px;
+        border-bottom: 1px solid $gray;
+      }
+    }
+
+    .Home {
+      .Feed {
+        padding: 0;
+        border-top: 1px solid $gray;
+      }
+    }
+  }
+}
+
+//Utility classes
+.Tweet {
+  position: relative;
+  border-bottom: 1px solid $gray;
+  div#time {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    opacity: 0.8;
+  }
+}
+.active-nav {
+  color: $maincolor !important;
+
+  i {
+    color: $maincolor !important;
+  }
+}
+
+.butn {
+  background-color: $maincolor;
+  color: #fff;
+  border-radius: 30px;
+
+  &:hover {
+    color: #fff;
+  }
+}
+
+.profile-image {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+
+.username {
+  font-weight: 700;
+}
+
+.tweet-icon {
+  color: $gray;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 10px;
+
+  &:hover {
+    color: $maincolor;
+    background: $hovercolor;
+  }
+}
+
+.likeBtn {
+  color: red;
+
+  &:hover {
+    color: red !important;
+    background: #e3bdbd;
+  }
+}
+
+//Media Query
+@media (min-width: 768px) and (max-width: 992px) {
+  .App {
+    .SignUp {
+      width: 60%;
+    }
+  }
+}
+
+@media (min-width: 993px) and (max-width: 1199px) {
+  .App {
+    .SignUp {
+      width: 50%;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .App {
+    .SignUp {
+      width: 40%;
+    }
+  }
+}
