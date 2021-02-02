@@ -25,6 +25,8 @@ $gray: #cbd6e2;
     }
 
     .Navbar {
+      position: sticky;
+      top: 0;
       font-weight: 700;
       height: 100vh;
 
@@ -86,7 +88,10 @@ $gray: #cbd6e2;
       }
     }
     .Trends {
-      position: relative;
+      position: sticky;
+      height: 100vh;
+      top: 0;
+      // position: relative;
       .FoundUsers {
         position: absolute;
         left: 50%;
