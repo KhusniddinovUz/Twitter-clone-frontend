@@ -5,8 +5,12 @@ import {
   USER_NOTLOADED,
 } from '../action/types';
 
+let isAuth = false;
+
+localStorage.getItem('twitter-token') ? (isAuth = true) : (isAuth = false);
+
 const initialState = {
-  isAuthenticated: false,
+  isAuthenticated: isAuth,
   token: localStorage.getItem('twitter-token'),
   username: null,
   email: null,
