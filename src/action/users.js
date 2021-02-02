@@ -1,4 +1,9 @@
-import { GET_LAST_USERS, ADD_ERROR, SEARCH_USERS } from './types';
+import {
+  GET_LAST_USERS,
+  ADD_ERROR,
+  SEARCH_USERS,
+  CLEAR_SEARCH_USERS,
+} from './types';
 import axios from 'axios';
 import { url } from '../components/data/url';
 
@@ -36,4 +41,11 @@ export const searchUsers = (name) => (dispatch) => {
     .catch((err) => {
       dispatch({ type: ADD_ERROR, payload: err.response.data });
     });
+};
+
+//Clear searched users store
+export const clearSearchUser = () => {
+  return {
+    type: CLEAR_SEARCH_USERS,
+  };
 };

@@ -11,3 +11,4 @@ export const GET_OWN_TWEET = 'GET_OWN_TWEET';
 export const CHANGE_NAV = 'CHANGE_NAV';
 export const GET_LAST_USERS = 'GET_LAST_USERS';
 export const SEARCH_USERS = 'SEARCH_USERS';
+export const CLEAR_SEARCH_USERS = 'CLEAR_SEARCH_USERS';
