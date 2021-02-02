@@ -86,7 +86,11 @@ $gray: #cbd6e2;
       }
     }
     .Trends {
+      position: relative;
       .FoundUsers {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
         display: none;
         border-radius: 3px;
         background: white;
@@ -102,6 +106,9 @@ $gray: #cbd6e2;
         margin: auto;
         border-radius: 30px;
         padding: 10px 20px;
+        &::-webkit-search-cancel-button {
+          cursor: pointer;
+        }
         &:focus ~ .FoundUsers {
           display: block;
         }
