@@ -91,7 +91,6 @@ $gray: #cbd6e2;
       position: sticky;
       height: 100vh;
       top: 0;
-      // position: relative;
       .FoundUsers {
         position: absolute;
         left: 50%;
@@ -149,7 +148,6 @@ $gray: #cbd6e2;
     }
 
     .TweetHome {
-      height: 200px;
       border-bottom: 1px solid $gray;
 
       & > div {
@@ -194,6 +192,8 @@ $gray: #cbd6e2;
 
 //Utility classes
 .Tweet {
+  width: 100%;
+
   position: relative;
   border-bottom: 1px solid $gray;
   div#time {
@@ -254,7 +254,70 @@ $gray: #cbd6e2;
 }
 
 //Media Query
-@media (min-width: 768px) and (max-width: 992px) {
+@media (max-width: 699px) {
+  .App {
+    .Main {
+      .Feed {
+        padding: 0 !important;
+      }
+      grid-template-columns: 1fr 8fr;
+      .TweetHome {
+        form {
+          > div {
+            padding: 0;
+            textarea {
+              margin-left: 15px !important;
+            }
+          }
+          img {
+            width: 50px;
+            height: 50px;
+          }
+          padding: 5px 10px !important;
+        }
+      }
+      .Tweet {
+        padding: 5px !important;
+        img {
+          width: 40px;
+          height: 40px;
+        }
+        #time {
+          display: none;
+        }
+      }
+      .Empty {
+        img {
+          width: 200px;
+        }
+      }
+      .Navbar {
+        ul {
+          width: 100% !important;
+          margin: 0;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          #twitter {
+            padding: 0;
+          }
+          li {
+            text-align: center;
+            padding: 5px;
+            i {
+              margin: auto;
+            }
+          }
+        }
+      }
+      .Trends {
+        display: none;
+      }
+    }
+  }
+}
+@media (min-width: 700px) and (max-width: 992px) {
   .App {
     .SignUp {
       width: 60%;

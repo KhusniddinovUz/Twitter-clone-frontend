@@ -3,7 +3,7 @@ import moment from 'moment';
 
 const Tweet = ({ tweet }) => {
   return (
-    <div className='Tweet container p-3 d-flex'>
+    <div className='Tweet  p-3 d-flex'>
       <img
         src={`https://ui-avatars.com/api/?name=${tweet.username}&background=random`}
         className='profile-image'

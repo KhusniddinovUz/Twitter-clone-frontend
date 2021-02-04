@@ -11,7 +11,7 @@ const Feed = () => {
   const dispatch = useDispatch();
   const tweets = useSelector((state) => state.tweet.tweets);
   return (
-    <div className='Feed container mt-4'>
+    <div className='Feed mt-4'>
       {tweets && tweets.map((tweet) => <Tweet key={v4()} tweet={tweet} />)}
     </div>
   );

@@ -19,8 +19,8 @@ const TweetHome = () => {
   return (
     <div className='TweetHome'>
       <div>Home</div>
-      <form className='p-4' onSubmit={onSubmit}>
-        <div className='container d-flex justify-content-center'>
+      <form className='p-3' onSubmit={onSubmit}>
+        <div className='d-flex justify-content-center'>
           <img
             src={`https://ui-avatars.com/api/?name=${auth.username}`}
             className='profile-image'
