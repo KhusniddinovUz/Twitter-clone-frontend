@@ -267,6 +267,13 @@ $gray: #cbd6e2;
     .SignUp {
       width: 50%;
     }
+    .Main {
+      .Navbar {
+        ul {
+          width: 90% !important;
+        }
+      }
+    }
   }
 }
 
