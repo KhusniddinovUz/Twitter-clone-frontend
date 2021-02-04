@@ -272,6 +272,14 @@ $gray: #cbd6e2;
         ul {
           width: 90% !important;
         }
+        li {
+          span {
+            display: inline !important;
+          }
+        }
+        button {
+          display: block !important;
+        }
       }
     }
   }
@@ -281,6 +289,20 @@ $gray: #cbd6e2;
   .App {
     .SignUp {
       width: 40%;
+    }
+    .Main {
+      .Navbar {
+        ul {
+          li {
+            span {
+              display: inline !important;
+            }
+          }
+        }
+        button {
+          display: block !important;
+        }
+      }
     }
   }
 }

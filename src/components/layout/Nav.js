@@ -34,7 +34,7 @@ const Nav = ({ props, iconClass, name, activeClass }) => {
       className={`d-flex align-items-center list-group-item ${activeClass}`}
     >
       <i className={iconClass} />
-      <span>{name}</span>
+      <span className='d-none'>{name}</span>
     </li>
   );
 };

@@ -34,7 +34,7 @@ const Navbar = ({ props }) => {
         })}
       </ul>
       <div className='w-75 mx-auto'>
-        <button className='w-100 btn butn p-3'>Tweet</button>
+        <button className='w-100 btn butn p-3 d-none'>Tweet</button>
       </div>
     </div>
   );
