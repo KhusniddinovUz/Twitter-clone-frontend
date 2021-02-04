@@ -259,6 +259,33 @@ $gray: #cbd6e2;
     .SignUp {
       width: 60%;
     }
+    .Main {
+      .Trends {
+        #lastusers {
+          padding: 0;
+          span {
+            padding: 5px !important;
+            text-align: center;
+          }
+        }
+      }
+      grid-template-columns: 0.5fr 2fr 1.5fr;
+      .Navbar {
+        ul {
+          display: flex;
+          flex-direction: column;
+          li {
+            padding: 10px 0;
+            text-align: center;
+          }
+        }
+      }
+      .Empty {
+        img {
+          width: 300px;
+        }
+      }
+    }
   }
 }
 
