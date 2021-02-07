@@ -29,6 +29,7 @@ const Nav = ({ props, iconClass, name, activeClass }) => {
   };
 
   return (
+    <>
     <li
       onClick={onClick}
       className={`d-flex align-items-center list-group-item ${activeClass}`}
@@ -36,6 +37,8 @@ const Nav = ({ props, iconClass, name, activeClass }) => {
       <i className={iconClass} />
       <span className='d-none'>{name}</span>
     </li>
+    <br />
+    </>
   );
 };
 
