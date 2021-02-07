@@ -5,10 +5,10 @@ import { v4 } from 'uuid';
 import { loadTweets } from '../../action/tweet';
 
 const Feed = () => {
+  const dispatch = useDispatch();
   useEffect(() => {
     dispatch(loadTweets());
-  }, []);
-  const dispatch = useDispatch();
+  }, [dispatch]);
   const tweets = useSelector((state) => state.tweet.tweets);
   return (
     <div className='Feed mt-4'>

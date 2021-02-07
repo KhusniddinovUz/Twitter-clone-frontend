@@ -19,7 +19,7 @@ const Trends = () => {
 
   useEffect(() => {
     dispatch(getLastUsers());
-  }, []);
+  }, [dispatch]);
   return (
     <div className='Trends text-center'>
       <input

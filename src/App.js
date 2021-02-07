@@ -16,7 +16,7 @@ const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(loadUser());
-  }, []);
+  }, [dispatch]);
   const auth = useSelector((state) => state.auth);
   return (
     <Router>

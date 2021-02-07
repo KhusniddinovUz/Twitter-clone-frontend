@@ -9,7 +9,7 @@ const Profile = () => {
   const ownTweets = useSelector((state) => state.tweet.owntweets.length);
   useEffect(() => {
     dispatch(getOwnTweets());
-  }, []);
+  }, [dispatch]);
   return (
     <div className='Profile'>
       <div className='container p-4 text-center'>
