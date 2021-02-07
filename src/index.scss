@@ -196,6 +196,12 @@ $gray: #cbd6e2;
 
   position: relative;
   border-bottom: 1px solid $gray;
+  div.container {
+    div {
+      word-wrap: wrap;
+      word-break: break-all;
+    }
+  }
   div#time {
     position: absolute;
     top: 5px;
