@@ -29,16 +29,16 @@ const Nav = ({ props, iconClass, name, activeClass }) => {
   };
 
   return (
-    // <>
-    <li
-      onClick={onClick}
-      className={`d-flex align-items-center list-group-item ${activeClass}`}
-    >
-      <i className={iconClass} />
-      <span className='d-none'>{name}</span>
-    </li>
-    // {/* <br /> */}
-    // {/* </> */}
+    <>
+      <li
+        onClick={onClick}
+        className={`d-flex align-items-center list-group-item ${activeClass}`}
+      >
+        <i className={iconClass} />
+        <span className='d-none'>{name}</span>
+      </li>
+      <br />
+    </>
   );
 };
 
