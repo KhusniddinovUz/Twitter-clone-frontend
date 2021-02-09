@@ -27,7 +27,7 @@ const SignUp = () => {
   const passwordValid = () => {
     if (
       password1.current.value === password2.current.value &&
-      password1.current.value.length > 6
+      password1.current.value.length >= 6
     ) {
       setBorder('form-control');
       return true;
