@@ -9,6 +9,11 @@ $gray: #cbd6e2;
   font-family: 'Lato';
 }
 
+#TweetNav {
+  text-decoration: none;
+  color: inherit;
+}
+
 .App {
   .SignUp {
     small {
@@ -193,7 +198,6 @@ $gray: #cbd6e2;
 //Utility classes
 .Tweet {
   width: 100%;
-
   position: relative;
   border-bottom: 1px solid $gray;
   div.container {
