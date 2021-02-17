@@ -1,9 +1,8 @@
 import React from 'react';
 import moment from 'moment';
-import { NavLink, withRouter } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
-const Tweet = ({ tweet, history }) => {
-  console.log(history);
+const Tweet = ({ tweet }) => {
   return (
     <NavLink id='TweetNav' to={`/home/tweet/${tweet.id}`}>
       <div className='Tweet  p-3 d-flex'>
@@ -22,4 +21,4 @@ const Tweet = ({ tweet, history }) => {
   );
 };
 
-export default withRouter(Tweet);
+export default Tweet;
