@@ -5,6 +5,7 @@ import Home from './components/NavComponents/Home';
 import Profile from './components/NavComponents/Profile';
 import Empty from './components/NavComponents/Empty';
 import Trends from './components/layout/Trends';
+import SpecificTweet from './components/layout/SpecificTweet';
 
 const Main = (props) => {
   return (
@@ -17,6 +18,7 @@ const Main = (props) => {
           <Route exact path='/home/notifications' component={Empty} />
           <Route exact path='/home/messages' component={Empty} />
           <Route exact path='/home/more' component={Empty} />
+          <Route path='/home/tweet/' component={SpecificTweet} />
         </Switch>
       </div>
       <Trends />
