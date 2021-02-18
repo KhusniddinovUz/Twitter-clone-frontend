@@ -17,7 +17,7 @@ const Feed = () => {
         tweets.map((tweet) => {
           return (
             <NavLink key={v4()} to={`/home/tweet/${tweet.id}`} id='TweetNav'>
-              <Tweet tweet={tweet} />
+              <Tweet tweet={tweet} fetch={true} />
             </NavLink>
           );
         })}

@@ -3,10 +3,12 @@ import moment from 'moment';
 import { useDispatch } from 'react-redux';
 import { getComments } from '../../action/comments';
 
-const Tweet = ({ tweet }) => {
+const Tweet = ({ tweet, fetch }) => {
   const dispatch = useDispatch();
   const clickHandler = () => {
-    dispatch(getComments(tweet.id));
+    if (fetch) {
+      dispatch(getComments(tweet.id));
+    }
   };
   return (
     <div className='Tweet  p-3 d-flex' onClick={clickHandler}>
