@@ -26,7 +26,9 @@ const SpecificTweet = (props) => {
       {comments.length <= 0 ? (
         <div className='text-center p-2'>No comments yet</div>
       ) : (
-        <div className='text-center p-2'>Comments on your tweet</div>
+        <div className='text-center p-2 border-bottom'>
+          Comments on your tweet
+        </div>
       )}
       <Comments comments={comments} />
     </div>
