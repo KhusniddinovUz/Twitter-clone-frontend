@@ -11,7 +11,7 @@ const Tweet = ({ tweet, fetch }) => {
     }
   };
   return (
-    <div className='Tweet  p-3 d-flex' onClick={clickHandler}>
+    <div className='Tweet p-3 d-flex' onClick={clickHandler}>
       <img
         src={`https://ui-avatars.com/api/?name=${tweet.username}&background=random`}
         className='profile-image'

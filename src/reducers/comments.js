@@ -5,7 +5,6 @@ const comments = (state = initialState, action) => {
   switch (action.type) {
     case GET_COMMENT:
       let newState = [...state, ...action.payload];
-      console.log(newState);
       return newState;
     default:
       return state;
