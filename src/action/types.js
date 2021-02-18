@@ -13,3 +13,4 @@ export const GET_LAST_USERS = 'GET_LAST_USERS';
 export const SEARCH_USERS = 'SEARCH_USERS';
 export const CLEAR_SEARCH_USERS = 'CLEAR_SEARCH_USERS';
 export const GET_COMMENT = 'GET_COMMENT';
+export const CREATE_COMMENT = 'CREATE_COMMENT';

@@ -1,17 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import Tweet from './Tweet';
 import { useSelector } from 'react-redux';
 import Comments from './Comments';
+import AddCommentModal from './AddCommentModal';
 
 const SpecificTweet = (props) => {
+  const [open, setOpen] = useState(false);
+  const close = () => setOpen(false);
   const tweet_id = props.location.pathname.substring(
     12,
     props.location.pathname.length
   );
-  const comments = useSelector((state) =>
-    state.comments.filter((com) => `${com.tweet}` === tweet_id)
-  );
+  const comments = useSelector((state) => {
+    if (state.comments.length > 0) {
+      return state.comments.filter((com) => `${com.tweet}` === tweet_id);
+    } else return [];
+  });
   const tweet = useSelector((state) => {
     if (state.tweet.tweets.length > 0) {
       let tweets = state.tweet.tweets.filter(
@@ -30,7 +35,14 @@ const SpecificTweet = (props) => {
           Comments on your tweet
         </div>
       )}
+      <button
+        className='btn butn mx-auto d-block mt-2'
+        onClick={() => setOpen(true)}
+      >
+        Add comment
+      </button>
       <Comments comments={comments} />
+      {tweet && <AddCommentModal open={open} close={close} tweet={tweet.id} />}
     </div>
   );
 };

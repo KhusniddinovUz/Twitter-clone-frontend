@@ -32,6 +32,10 @@ const Alerts = (props) => {
     alert.success(`${msg.deletedTweet}`);
     dispatch({ type: REMOVE_ERROR });
   }
+  if (msg.body) {
+    alert.error(`Body: ${String(msg.body)}`);
+    dispatch({ type: REMOVE_ERROR });
+  }
 
   return <div></div>;
 };

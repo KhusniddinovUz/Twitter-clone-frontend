@@ -1,9 +1,9 @@
 import React, { useRef } from 'react';
 import Modal from 'react-modal';
 import { useDispatch } from 'react-redux';
-import {} from '../../action/comments';
+import { addComment } from '../../action/comments';
 
-const AddCommentModal = ({ open, close }) => {
+const AddCommentModal = ({ open, close, tweet }) => {
   const text = useRef('');
   const dispatch = useDispatch();
   const style = {
@@ -32,6 +32,7 @@ const AddCommentModal = ({ open, close }) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    dispatch(addComment({ body: text.current.value, tweet }));
     close();
   };
 
