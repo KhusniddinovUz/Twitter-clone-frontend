@@ -1,6 +1,5 @@
 import React from 'react';
 import moment from 'moment';
-import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { getComments } from '../../action/comments';
 
@@ -10,24 +9,18 @@ const Tweet = ({ tweet }) => {
     dispatch(getComments(tweet.id));
   };
   return (
-    <NavLink
-      id='TweetNav'
-      to={`/home/tweet/${tweet.id}`}
-      onClick={clickHandler}
-    >
-      <div className='Tweet  p-3 d-flex'>
-        <img
-          src={`https://ui-avatars.com/api/?name=${tweet.username}&background=random`}
-          className='profile-image'
-          alt='profile'
-        />
-        <div className='container'>
-          <span className='username'>{tweet.username}</span>
-          <div>{tweet.text}</div>
-        </div>
-        <div id='time'>{moment(tweet.created_at).format('MMM Do YYYY')}</div>
+    <div className='Tweet  p-3 d-flex' onClick={clickHandler}>
+      <img
+        src={`https://ui-avatars.com/api/?name=${tweet.username}&background=random`}
+        className='profile-image'
+        alt='profile'
+      />
+      <div className='container'>
+        <span className='username'>{tweet.username}</span>
+        <div>{tweet.text}</div>
       </div>
-    </NavLink>
+      <div id='time'>{moment(tweet.created_at).format('MMM Do YYYY')}</div>
+    </div>
   );
 };
 
