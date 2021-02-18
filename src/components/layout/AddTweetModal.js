@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import Modal from 'react-modal';
+import { useDispatch } from 'react-redux';
+import { addTweet } from '../../action/tweet';
 
 const AddTweetModal = ({ open, close }) => {
+  const text = useRef('');
+  const dispatch = useDispatch();
   const style = {
     overlay: {
       position: 'fixed',
@@ -26,6 +30,12 @@ const AddTweetModal = ({ open, close }) => {
     },
   };
 
+  const onSubmit = (e) => {
+    e.preventDefault();
+    dispatch(addTweet({ text: text.current.value }));
+    close();
+  };
+
   return (
     <Modal
       isOpen={open}
@@ -33,8 +43,8 @@ const AddTweetModal = ({ open, close }) => {
       className='AddTweetModal position-relative'
     >
       <h2 className='mb-3'>Create a brend new Tweet</h2>
-      <form className='form-group width-200'>
-        <textarea type='text' className='form-control' />
+      <form className='form-group width-200' onSubmit={onSubmit}>
+        <textarea type='text' className='form-control' ref={text} />
         <button className='butn btn mt-3' type='submit'>
           Add Tweet
         </button>
