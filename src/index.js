@@ -6,11 +6,14 @@ import store from './store';
 import { Provider } from 'react-redux';
 import AlertTemplate from 'react-alert-template-basic';
 import { Provider as AlertProvider } from 'react-alert';
+import Modal from 'react-modal';
 
 const alertConfig = {
   position: 'top center',
   timeout: 4000,
 };
+
+Modal.setAppElement('#root');
 
 ReactDOM.render(
   <Provider store={store}>

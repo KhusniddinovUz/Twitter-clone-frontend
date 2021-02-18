@@ -1,17 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Nav from './Nav';
 import { nav } from '../data/nav';
 import { v4 } from 'uuid';
 import { useSelector, useDispatch } from 'react-redux';
 import { changeNav } from '../../action/nav';
+import AddTweetModal from './AddTweetModal';
 
 const Navbar = ({ props }) => {
+  const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
   const onClick = () => {
     props.history.push('/home');
     dispatch(changeNav('Home'));
   };
   const active = useSelector((state) => state.nav.activeNav);
+  const close = () => setOpen(false);
   return (
     <div className='Navbar'>
       <ul className='w-75 mx-auto'>
@@ -34,8 +37,14 @@ const Navbar = ({ props }) => {
         })}
       </ul>
       <div className='w-75 mx-auto'>
-        <button className='w-100 btn butn p-3 d-none'>Tweet</button>
+        <button
+          className='w-100 btn butn p-3 d-none'
+          onClick={() => setOpen(true)}
+        >
+          Tweet
+        </button>
       </div>
+      <AddTweetModal open={open} close={close} />
     </div>
   );
 };
