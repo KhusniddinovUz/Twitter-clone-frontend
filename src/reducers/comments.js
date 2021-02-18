@@ -4,7 +4,11 @@ const initialState = [];
 const comments = (state = initialState, action) => {
   switch (action.type) {
     case GET_COMMENT:
-      let newState = [...state, ...action.payload];
+      const ids = new Set(state.map((d) => d.id));
+      const newState = [
+        ...state,
+        ...action.payload.filter((d) => !ids.has(d.id)),
+      ];
       return newState;
     case CREATE_COMMENT:
       let newState2 = [...state];
