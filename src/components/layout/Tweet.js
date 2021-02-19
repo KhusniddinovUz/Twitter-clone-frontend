@@ -1,17 +1,8 @@
-import React from 'react';
 import moment from 'moment';
-import { useDispatch } from 'react-redux';
-import { getComments } from '../../action/comments';
 
-const Tweet = ({ tweet, fetch }) => {
-  const dispatch = useDispatch();
-  const clickHandler = () => {
-    if (fetch) {
-      dispatch(getComments(tweet.id));
-    }
-  };
+const Tweet = ({ tweet }) => {
   return (
-    <div className='Tweet p-3 d-flex' onClick={clickHandler}>
+    <div className='Tweet p-3 d-flex'>
       <img
         src={`https://ui-avatars.com/api/?name=${tweet.username}&background=random`}
         className='profile-image'

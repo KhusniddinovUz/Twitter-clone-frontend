@@ -9,6 +9,8 @@ import {
   Redirect,
 } from 'react-router-dom';
 import { loadUser } from './action/auth';
+import { loadTweets } from './action/tweet';
+import { getComments } from './action/comments';
 import Alerts from './components/layout/Alerts';
 import Main from './Main';
 
@@ -16,17 +18,15 @@ const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(loadUser());
+    dispatch(loadTweets());
+    dispatch(getComments('all'));
   }, [dispatch]);
   const auth = useSelector((state) => state.auth);
   return (
     <Router>
       <div className='App'>
         <Alerts />
-        {!auth.isAuthenticated ? (
-          <Redirect to='/login' />
-        ) : (
-          <Redirect to='/home' />
-        )}
+        {!auth.isAuthenticated && <Redirect to='/login' />}
         <Switch>
           <Route path='/home' component={Main} />
           <Route exact path='/register' component={Signup} />
