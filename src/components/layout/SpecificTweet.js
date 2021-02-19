@@ -31,16 +31,15 @@ const SpecificTweet = (props) => {
       {comments.length <= 0 ? (
         <div className='text-center p-2'>No comments yet</div>
       ) : (
-        <div className='text-center p-2 border-bottom'>
-          Comments on your tweet
-        </div>
+        <div className='text-center p-2'>Comments on your tweet</div>
       )}
       <button
-        className='btn butn mx-auto d-block mt-2'
+        className='btn butn mx-auto d-block mt-2 mb-3'
         onClick={() => setOpen(true)}
       >
         Add comment
       </button>
+      <div className='border-bottom'></div>
       <Comments comments={comments} />
       {tweet && <AddCommentModal open={open} close={close} tweet={tweet.id} />}
     </div>
