@@ -25,6 +25,11 @@ const App = () => {
   return (
     <Router>
       <div className='App'>
+        {!auth.isAuthenticated ? (
+          <Redirect to='/login' />
+        ) : (
+          <Redirect to='/home' />
+        )}
         <Alerts />
         {!auth.isAuthenticated && <Redirect to='/login' />}
         <Switch>
