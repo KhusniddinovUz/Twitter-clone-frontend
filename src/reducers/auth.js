@@ -14,6 +14,7 @@ const initialState = {
   token: localStorage.getItem('twitter-token'),
   username: null,
   email: null,
+  id: null,
 };
 
 const auth = (state = initialState, action) => {
@@ -27,6 +28,7 @@ const auth = (state = initialState, action) => {
         username: action.payload.user.username,
         email: action.payload.user.email,
         token: localStorage.getItem('twitter-token'),
+        id: action.payload.user.id,
       };
     case USER_LOADED:
       return {
@@ -34,6 +36,7 @@ const auth = (state = initialState, action) => {
         isAuthenticated: true,
         email: action.payload.email,
         username: action.payload.username,
+        id: action.payload.id,
       };
     case USER_NOTLOADED:
       return {

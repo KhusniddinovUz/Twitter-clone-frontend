@@ -74,19 +74,7 @@ export const deleteTweet = (id) => (dispatch, getState) => {
 };
 
 export const getOwnTweets = () => (dispatch, getState) => {
-  const token = getState().auth.token;
-  const config = {
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Token ${token}`,
-    },
-  };
-  axios
-    .get(`${url}/tweet/own/`, config)
-    .then((res) => {
-      dispatch({ type: GET_OWN_TWEET, payload: res.data });
-    })
-    .catch((err) => {
-      dispatch({ type: ADD_ERROR, payload: err.response.data });
-    });
+  const owner = getState().auth.id;
+  const tweets = getState().tweet.tweets.map((tweet) => (tweet.owner = owner));
+  dispatch({ type: GET_OWN_TWEET, payload: tweets });
 };
