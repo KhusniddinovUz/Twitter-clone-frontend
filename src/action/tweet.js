@@ -75,6 +75,8 @@ export const deleteTweet = (id) => (dispatch, getState) => {
 
 export const getOwnTweets = () => (dispatch, getState) => {
   const owner = getState().auth.id;
-  const tweets = getState().tweet.tweets.map((tweet) => (tweet.owner = owner));
+  const tweets = getState().tweet.tweets.filter(
+    (tweet) => tweet.owner === owner
+  );
   dispatch({ type: GET_OWN_TWEET, payload: tweets });
 };
