@@ -3,22 +3,18 @@ import { GET_COMMENT, ADD_ERROR, CREATE_COMMENT } from './types';
 import { url } from '../components/data/url';
 
 //Getting comments of a specific tweet
-export const getComments = (id) => (dispatch, getState) => {
-  const token = getState().auth.token;
+export const getComments = (id) => async (dispatch) => {
+  const token = localStorage.getItem('twitter-token');
   const config = {
     headers: {
       'Content-Type': 'application/json',
       Authorization: `Token ${token}`,
     },
   };
-  axios
-    .get(`${url}/tweet/comments/${id}`, config)
-    .then((res) => {
-      dispatch({ type: GET_COMMENT, payload: res.data });
-    })
-    .catch((err) => {
-      dispatch({ type: ADD_ERROR, payload: err.response.data });
-    });
+  try {
+    const res = await axios.get(`${url}/tweet/comments/${id}`, config);
+    dispatch({ type: GET_COMMENT, payload: res.data });
+  } catch {}
 };
 
 // Add comment

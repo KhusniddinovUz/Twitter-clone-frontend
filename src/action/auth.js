@@ -9,21 +9,19 @@ import {
 } from '../action/types';
 
 //LoadUser
-export const loadUser = () => (dispatch, getState) => {
+export const loadUser = () => async (dispatch) => {
   const token = localStorage.getItem('twitter-token');
   const config = {
     headers: {
       Authorization: `Token ${token}`,
     },
   };
-  axios
-    .get(`${url}/api/user`, config)
-    .then((res) => {
-      dispatch({ type: USER_LOADED, payload: res.data });
-    })
-    .catch((err) => {
-      dispatch({ type: USER_NOTLOADED });
-    });
+  try {
+    const response = await axios.get(`${url}/api/user`, config);
+    dispatch({ type: USER_LOADED, payload: response.data });
+  } catch {
+    dispatch({ type: USER_NOTLOADED });
+  }
 };
 
 // Login

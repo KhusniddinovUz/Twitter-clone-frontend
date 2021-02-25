@@ -32,7 +32,7 @@ export const addTweet = (tweet) => (dispatch, getState) => {
 };
 
 //Load Tweets
-export const loadTweets = () => (dispatch, getState) => {
+export const loadTweets = () => async (dispatch, getState) => {
   const token = getState().auth.token;
   const config = {
     headers: {
@@ -40,14 +40,10 @@ export const loadTweets = () => (dispatch, getState) => {
       Authorization: `Token ${token}`,
     },
   };
-  axios
-    .get(`${url}/tweet`, config)
-    .then((res) => {
-      dispatch({ type: TWEET_LOAD, payload: res.data });
-    })
-    .catch((err) => {
-      dispatch({ type: ADD_ERROR, payload: err.response.data });
-    });
+  try {
+    const res = await axios.get(`${url}/tweet`, config);
+    dispatch({ type: TWEET_LOAD, payload: res.data });
+  } catch {}
 };
 
 //Delete Tweet
