@@ -75,7 +75,9 @@
       (function ($) {
         'use strict';
         $(window).on('load', function () {
-          $('.pre-loader').fadeOut('slow');
+          setTimeout(() => {
+            $('.pre-loader').fadeOut('slow');
+          }, 1000);
         });
       })(jQuery);
     </script>

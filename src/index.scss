@@ -265,6 +265,8 @@ $gray: #cbd6e2;
 
 //Preloader for markup
 .pre-loader {
+  position: absolute;
+  background: #fff;
   width: 100vw;
   height: 100vh;
   display: flex;
