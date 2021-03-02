@@ -9,8 +9,6 @@ import {
   Redirect,
 } from 'react-router-dom';
 import { loadUser } from './action/auth';
-import { loadTweets } from './action/tweet';
-import { getComments } from './action/comments';
 import Alerts from './components/layout/Alerts';
 import Main from './Main';
 
@@ -18,8 +16,6 @@ const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(loadUser());
-    dispatch(loadTweets());
-    dispatch(getComments('all'));
   }, [dispatch]);
   const auth = useSelector((state) => state.auth);
   return (
