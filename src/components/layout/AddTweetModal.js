@@ -44,7 +44,13 @@ const AddTweetModal = ({ open, close }) => {
     >
       <h2 className='mb-3'>Create a brend new Tweet</h2>
       <form className='form-group width-200' onSubmit={onSubmit}>
-        <textarea type='text' className='form-control' ref={text} />
+        <textarea
+          rows={10}
+          type='text'
+          className='form-control'
+          ref={text}
+          style={{ resize: 'none' }}
+        />
         <button className='butn btn mt-3' type='submit'>
           Add Tweet
         </button>

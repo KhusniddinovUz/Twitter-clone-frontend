@@ -44,7 +44,13 @@ const AddCommentModal = ({ open, close, tweet }) => {
     >
       <h2 className='mb-3'>Comment on this tweet</h2>
       <form className='form-group width-200' onSubmit={onSubmit}>
-        <textarea type='text' className='form-control' ref={text} />
+        <textarea
+          rows={5}
+          type='text'
+          className='form-control'
+          ref={text}
+          style={{ resize: 'none' }}
+        />
         <button className='butn btn mt-3' type='submit'>
           Comment
         </button>
