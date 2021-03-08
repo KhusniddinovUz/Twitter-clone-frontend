@@ -17,7 +17,6 @@ const Home = () => {
   };
 
   tweets.length > 0 ? (loader = '') : (loader = roller);
-  console.log(loader);
 
   useEffect(() => {
     dispatch(loadTweets());
