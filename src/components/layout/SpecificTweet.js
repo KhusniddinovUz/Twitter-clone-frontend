@@ -26,7 +26,7 @@ const SpecificTweet = (props) => {
     }
   });
   return (
-    <div>
+    <div className='SpecificTweet'>
       {tweet && <Tweet tweet={tweet} />}
       {comments.length <= 0 ? (
         <div className='text-center p-2'>No comments yet</div>

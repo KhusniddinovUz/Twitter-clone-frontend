@@ -265,6 +265,9 @@ $gray: #cbd6e2;
 
 //Media Query
 @media (max-width: 699px) {
+  .AddCommentModal {
+    width: 300px !important;
+  }
   .App {
     .Main {
       .Feed {
