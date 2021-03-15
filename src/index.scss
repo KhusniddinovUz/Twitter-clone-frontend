@@ -201,16 +201,38 @@ $gray: #cbd6e2;
   position: relative;
   border-bottom: 1px solid $gray;
   div.container {
-    div {
+    div.user-text {
       word-wrap: wrap;
       word-break: break-all;
     }
   }
-  div#time {
+  .additional {
     position: absolute;
+    right: 0;
     top: 5px;
-    right: 5px;
-    opacity: 0.8;
+    margin-right: 5px;
+    display: flex;
+    div#time {
+      opacity: 0.8;
+    }
+    .TweetMore {
+      margin-left: 5px;
+      .dropdown {
+        i {
+          background: none;
+          color: #228cf5;
+          border: 1px solid #fff;
+          border-radius: 50%;
+          &:hover {
+            border: 1px solid #228cf5;
+          }
+          &:active {
+            background: #228cf5;
+            color: #fff;
+          }
+        }
+      }
+    }
   }
 }
 .active-nav {

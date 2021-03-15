@@ -1,4 +1,5 @@
 import moment from 'moment';
+import TweetMore from './TweetMore';
 
 const Tweet = ({ tweet }) => {
   return (
@@ -10,9 +11,12 @@ const Tweet = ({ tweet }) => {
       />
       <div className='container'>
         <span className='username'>{tweet.username}</span>
-        <div>{tweet.text}</div>
+        <div className='user-text'>{tweet.text}</div>
       </div>
-      <div id='time'>{moment(tweet.created_at).format('MMM Do YYYY')}</div>
+      <div className='additional'>
+        <div id='time'>{moment(tweet.created_at, 'YYYYMMDD').fromNow()}</div>
+        <TweetMore />
+      </div>
     </div>
   );
 };
