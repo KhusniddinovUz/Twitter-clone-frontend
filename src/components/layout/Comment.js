@@ -13,7 +13,9 @@ const Comment = ({ comment }) => {
         <span className='username'>{comment.username}</span>
         <div>{comment.body}</div>
       </div>
-      <div id='time'>{moment(comment.created).format('MMM Do YYYY')}</div>
+      <div className='additional'>
+        <div id='time'>{moment(comment.created).format('MMM D')}</div>
+      </div>
     </div>
   );
 };

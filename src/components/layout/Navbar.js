@@ -19,7 +19,7 @@ const Navbar = ({ props }) => {
     <div className='Navbar'>
       <ul className='w-75 mx-auto'>
         <li className='logo' onClick={onClick}>
-          <i className='fab fa-twitter' id='twitter' />
+          <i className='fab fa-twitter' id='twitter'></i>
         </li>
         <br />
         {nav.map((item) => {

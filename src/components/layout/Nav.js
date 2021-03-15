@@ -34,7 +34,7 @@ const Nav = ({ props, iconClass, name, activeClass }) => {
         onClick={onClick}
         className={`d-flex align-items-center list-group-item ${activeClass}`}
       >
-        <i className={iconClass} />
+        <i className={iconClass}></i>
         <span className='d-none'>{name}</span>
       </li>
       <br />
