@@ -1,6 +1,8 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
-const TweetMore = () => {
+const TweetMore = (props) => {
+  const owner = useSelector((state) => state.auth.id);
   const onClick = (e) => {
     e.preventDefault();
   };
@@ -16,9 +18,12 @@ const TweetMore = () => {
           aria-expanded='false'
         ></i>
         <div className='dropdown-menu' aria-labelledby='dropdownMenuButton'>
-          <span className='dropdown-item' href='#'>
-            Action
-          </span>
+          <span className='dropdown-item'>Action</span>
+          {owner == props.owner && (
+            <span onClick={props.delete} className='dropdown-item'>
+              Delete
+            </span>
+          )}
         </div>
       </div>
     </div>

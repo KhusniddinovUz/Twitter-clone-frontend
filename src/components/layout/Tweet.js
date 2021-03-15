@@ -1,7 +1,13 @@
 import moment from 'moment';
 import TweetMore from './TweetMore';
+import { useDispatch } from 'react-redux';
+import { deleteTweet } from '../../action/tweet';
 
 const Tweet = ({ tweet }) => {
+  const dispatch = useDispatch();
+  const deleteHandler = () => {
+    dispatch(deleteTweet(tweet.id));
+  };
   return (
     <div className='Tweet p-3 d-flex'>
       <img
@@ -15,7 +21,7 @@ const Tweet = ({ tweet }) => {
       </div>
       <div className='additional'>
         <div id='time'>{moment(tweet.created_at).format('MMM D')}</div>
-        <TweetMore />
+        <TweetMore delete={deleteHandler} owner={tweet.owner} />
       </div>
     </div>
   );
