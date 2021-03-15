@@ -19,7 +19,7 @@ const TweetMore = (props) => {
         ></i>
         <div className='dropdown-menu' aria-labelledby='dropdownMenuButton'>
           <span className='dropdown-item'>Action</span>
-          {owner == props.owner && (
+          {owner === props.owner && (
             <span onClick={props.delete} className='dropdown-item'>
               Delete
             </span>
