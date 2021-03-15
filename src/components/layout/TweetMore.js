@@ -6,7 +6,7 @@ const TweetMore = () => {
   };
   return (
     <div onClick={onClick} className='TweetMore'>
-      <div className='dropdown'>
+      <div className='dropleft'>
         <i
           className='btn btn-secondary far fa-ellipsis-v'
           type='button'

@@ -14,7 +14,7 @@ const Tweet = ({ tweet }) => {
         <div className='user-text'>{tweet.text}</div>
       </div>
       <div className='additional'>
-        <div id='time'>{moment(tweet.created_at, 'YYYYMMDD').fromNow()}</div>
+        <div id='time'>{moment(tweet.created_at).format('MMM D')}</div>
         <TweetMore />
       </div>
     </div>

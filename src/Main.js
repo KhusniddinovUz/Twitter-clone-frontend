@@ -18,7 +18,7 @@ const Main = (props) => {
           <Route exact path='/home/notifications' component={Empty} />
           <Route exact path='/home/messages' component={Empty} />
           <Route exact path='/home/more' component={Empty} />
-          <Route path='/home/tweet/' component={SpecificTweet} />
+          <Route path='/home/tweet/:id' component={SpecificTweet} />
         </Switch>
       </div>
       <Trends />

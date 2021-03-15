@@ -8,10 +8,7 @@ import AddCommentModal from './AddCommentModal';
 const SpecificTweet = (props) => {
   const [open, setOpen] = useState(false);
   const close = () => setOpen(false);
-  const tweet_id = props.location.pathname.substring(
-    12,
-    props.location.pathname.length
-  );
+  const tweet_id = props.match.params.id;
   const comments = useSelector((state) => {
     if (state.comments.length > 0) {
       return state.comments.filter((com) => `${com.tweet}` === tweet_id);
