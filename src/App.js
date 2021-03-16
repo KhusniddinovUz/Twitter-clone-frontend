@@ -9,23 +9,24 @@ import {
   Redirect,
 } from 'react-router-dom';
 import { loadUser } from './action/auth';
+import { loadTweets } from './action/tweet';
+import { getComments } from './action/comments';
 import Alerts from './components/layout/Alerts';
 import Main from './Main';
 
 const App = () => {
   const dispatch = useDispatch();
+  const auth = useSelector((state) => state.auth);
   useEffect(() => {
     dispatch(loadUser());
-  }, [dispatch]);
-  const auth = useSelector((state) => state.auth);
+    if (auth.id) {
+      dispatch(loadTweets());
+      dispatch(getComments('all'));
+    }
+  }, [dispatch, auth.id]);
   return (
     <Router>
       <div className='App'>
-        {!auth.isAuthenticated ? (
-          <Redirect to='/login' />
-        ) : (
-          <Redirect to='/home' />
-        )}
         <Alerts />
         {!auth.isAuthenticated && <Redirect to='/login' />}
         <Switch>
