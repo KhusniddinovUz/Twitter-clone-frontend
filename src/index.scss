@@ -218,17 +218,32 @@ $gray: #cbd6e2;
     .TweetMore {
       margin-left: 5px;
       .dropleft {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        border: 1px solid transparent;
+        &:hover {
+          border: 1px solid #228cf5;
+        }
+        &:active {
+          background: #228cf5;
+          i {
+            color: #fff;
+          }
+        }
         i {
+          margin: auto;
+          width: 100%;
+          height: 100%;
           background: none;
           color: #228cf5;
-          border: 1px solid #fff;
-          border-radius: 50%;
-          &:hover {
-            border: 1px solid #228cf5;
-          }
-          &:active {
-            background: #228cf5;
-            color: #fff;
+          padding: 0;
+          border: none;
+          &::before {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
           }
         }
       }
