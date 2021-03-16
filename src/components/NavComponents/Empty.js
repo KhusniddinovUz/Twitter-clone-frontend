@@ -12,7 +12,6 @@ const Empty = () => {
         src={maintenance}
         alt='Maintenance break'
         width='400'
-        height='400'
       />
     </div>
   );
