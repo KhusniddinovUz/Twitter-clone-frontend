@@ -1,11 +1,18 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { deleteTweet } from '../../action/tweet';
 
-const TweetMore = (props) => {
-  const owner = useSelector((state) => state.auth.id);
+const TweetMore = ({ tweet, owner }) => {
+  const dispatch = useDispatch();
+  const tweet_owner = useSelector((state) => state.auth.id);
   const onClick = (e) => {
     e.preventDefault();
   };
+
+  const deleteHandler = () => {
+    dispatch(deleteTweet(tweet.id));
+  };
+
   return (
     <div onClick={onClick} className='TweetMore'>
       <div className='dropleft'>
@@ -19,8 +26,8 @@ const TweetMore = (props) => {
         ></i>
         <div className='dropdown-menu' aria-labelledby='dropdownMenuButton'>
           <span className='dropdown-item'>Action</span>
-          {owner === props.owner && (
-            <span onClick={props.delete} className='dropdown-item'>
+          {tweet_owner === owner && (
+            <span onClick={deleteHandler} className='dropdown-item'>
               Delete
             </span>
           )}
