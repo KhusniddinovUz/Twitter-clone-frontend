@@ -13,6 +13,10 @@ const TweetMore = ({ tweet, owner }) => {
     dispatch(deleteTweet(tweet.id));
   };
 
+  const copyLinkHandler = () => {
+    const link = `https://twitter-clone-n1.netlify.app/home/tweet/${tweet.id}`;
+    navigator.clipboard.writeText(link);
+  };
   return (
     <div onClick={onClick} className='TweetMore'>
       <div className='dropleft'>
@@ -25,7 +29,9 @@ const TweetMore = ({ tweet, owner }) => {
           aria-expanded='false'
         ></i>
         <div className='dropdown-menu' aria-labelledby='dropdownMenuButton'>
-          <span className='dropdown-item'>Action</span>
+          <span className='dropdown-item' onClick={copyLinkHandler}>
+            Copy Link
+          </span>
           {tweet_owner === owner && (
             <span onClick={deleteHandler} className='dropdown-item'>
               Delete
