@@ -2,19 +2,15 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Login from './components/auth/Login';
 import Signup from './components/auth/Signup';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Redirect,
-} from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import { loadUser } from './action/auth';
 import { loadTweets } from './action/tweet';
 import { getComments } from './action/comments';
 import Alerts from './components/layout/Alerts';
 import Main from './Main';
+import { withRouter } from 'react-router-dom';
 
-const App = () => {
+const App = (props) => {
   const dispatch = useDispatch();
   const auth = useSelector((state) => state.auth);
   useEffect(() => {
@@ -25,13 +21,9 @@ const App = () => {
     }
   }, [dispatch, auth.id]);
   return (
-    <Router>
+    <div>
       <div className='App'>
-        {!auth.isAuthenticated ? (
-          <Redirect to='/login' />
-        ) : (
-          <Redirect to='/home' />
-        )}
+        {props.history.location.pathname === '/' && <Redirect to='/home' />}
         <Alerts />
         {!auth.isAuthenticated && <Redirect to='/login' />}
         <Switch>
@@ -41,8 +33,8 @@ const App = () => {
           {/* <Redirect from='/' to='/home' /> */}
         </Switch>
       </div>
-    </Router>
+    </div>
   );
 };
 
-export default App;
+export default withRouter(App);
