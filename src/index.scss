@@ -227,11 +227,11 @@ $gray: #cbd6e2;
         }
         &:active {
           background: #228cf5;
-          i {
+          & > i {
             color: #fff;
           }
         }
-        i {
+        & > i {
           margin: auto;
           width: 100%;
           height: 100%;
@@ -244,6 +244,18 @@ $gray: #cbd6e2;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+          }
+        }
+        .dropdown-menu {
+          span {
+            margin-bottom: 5px;
+            padding: 0px 10px;
+            &:last-child {
+              margin-bottom: 0;
+            }
+            i {
+              margin-right: 10px;
+            }
           }
         }
       }

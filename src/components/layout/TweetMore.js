@@ -34,10 +34,12 @@ const TweetMore = ({ tweet, owner }) => {
         ></i>
         <div className='dropdown-menu' aria-labelledby='dropdownMenuButton'>
           <span className='dropdown-item' onClick={copyLinkHandler}>
+            <i className='fal fa-share-alt' />
             Copy Link
           </span>
           {tweet_owner === owner && (
             <span onClick={deleteHandler} className='dropdown-item'>
+              <i className='fal fa-trash-alt' />
               Delete
             </span>
           )}
