@@ -16,6 +16,10 @@ const TweetMore = ({ tweet, owner }) => {
   const copyLinkHandler = () => {
     const link = `https://twitter-clone-n1.netlify.app/home/tweet/${tweet.id}`;
     navigator.clipboard.writeText(link);
+    dispatch({
+      type: 'ADD_ERROR',
+      payload: { tweet_link_copied: 'Link is copied to clipboard' },
+    });
   };
   return (
     <div onClick={onClick} className='TweetMore'>

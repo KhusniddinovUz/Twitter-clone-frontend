@@ -36,6 +36,10 @@ const Alerts = (props) => {
     alert.error(`Body: ${String(msg.body)}`);
     dispatch({ type: REMOVE_ERROR });
   }
+  if (msg.tweet_link_copied) {
+    alert.success(`${msg.tweet_link_copied}`);
+    dispatch({ type: REMOVE_ERROR });
+  }
 
   return <div></div>;
 };
