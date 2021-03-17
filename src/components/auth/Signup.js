@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useRef } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { register } from '../../action/auth';
@@ -10,7 +10,6 @@ const SignUp = () => {
   const password2 = useRef();
   const dispatch = useDispatch();
   const auth = useSelector((state) => state.auth);
-  const [border, setBorder] = useState('form-control');
   const submitHandler = (e) => {
     e.preventDefault();
     if (passwordValid()) {
@@ -29,10 +28,12 @@ const SignUp = () => {
       password1.current.value === password2.current.value &&
       password1.current.value.length >= 6
     ) {
-      setBorder('form-control');
+      password1.current.className = 'form-control';
+      password2.current.className = 'form-control';
       return true;
     } else {
-      setBorder('border-danger form-control');
+      password1.current.className += ' border-danger';
+      password2.current.className += ' border-danger';
       return false;
     }
   };
@@ -72,7 +73,7 @@ const SignUp = () => {
           <label htmlFor='password1'>Password</label>
           <input
             type='password'
-            className={border}
+            className='form-control'
             id='password1'
             placeholder='Password'
             ref={password1}
@@ -83,7 +84,7 @@ const SignUp = () => {
           <label htmlFor='password2'>Repeat Password</label>
           <input
             type='password'
-            className={border}
+            className='form-control'
             id='password2'
             placeholder='Password'
             ref={password2}
