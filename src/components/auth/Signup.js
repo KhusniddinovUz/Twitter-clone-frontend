@@ -12,7 +12,7 @@ const SignUp = () => {
   const auth = useSelector((state) => state.auth);
   const submitHandler = (e) => {
     e.preventDefault();
-    if (passwordValid()) {
+    if (passwordValid() && usernameValid()) {
       dispatch(
         register({
           username: username.current.value,
@@ -38,6 +38,16 @@ const SignUp = () => {
     }
   };
 
+  const usernameValid = () => {
+    if (username.current.value.length <= 15) {
+      username.current.className = 'form-control';
+      return true;
+    } else {
+      username.current.className += ' border-danger';
+      return false;
+    }
+  };
+
   if (auth.isAuthenticated) {
     return <Redirect to='/home' />;
   }
@@ -56,6 +66,7 @@ const SignUp = () => {
             placeholder='Enter Username'
             ref={username}
           />
+          <small>No more than 15 characters</small>
         </div>
         <div className='form-group p-2 '>
           <label htmlFor='email'>Email address</label>
