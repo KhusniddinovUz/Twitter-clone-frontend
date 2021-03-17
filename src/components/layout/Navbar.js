@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Nav from './Nav';
+import AddTweetModal from './AddTweetModal';
 import { nav } from '../data/nav';
 import { v4 } from 'uuid';
 import { useSelector, useDispatch } from 'react-redux';
 import { changeNav } from '../../action/nav';
-import AddTweetModal from './AddTweetModal';
+import { withRouter } from 'react-router-dom';
 
-const Navbar = ({ props }) => {
+const Navbar = (props) => {
   const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
   const onClick = () => {
@@ -15,6 +16,32 @@ const Navbar = ({ props }) => {
   };
   const active = useSelector((state) => state.nav.activeNav);
   const close = () => setOpen(false);
+  const [default_nav, setDefaultNav] = useState('');
+
+  useEffect(() => {
+    switch (props.history.location.pathname) {
+      case '/home':
+        setDefaultNav('Home');
+        break;
+      case '/home/notifications':
+        setDefaultNav('Notifications');
+        break;
+      case '/home/messages':
+        setDefaultNav('Messages');
+        break;
+      case '/home/profile':
+        setDefaultNav('Profile');
+        break;
+      case '/home/more':
+        setDefaultNav('More');
+        break;
+      default:
+        setDefaultNav('Home');
+        break;
+    }
+    dispatch(changeNav(default_nav));
+  }, [default_nav, dispatch, props.history]);
+
   return (
     <div className='Navbar'>
       <ul className='w-75 mx-auto'>
@@ -49,4 +76,4 @@ const Navbar = ({ props }) => {
   );
 };
 
-export default Navbar;
+export default withRouter(Navbar);

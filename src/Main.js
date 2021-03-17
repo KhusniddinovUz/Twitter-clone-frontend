@@ -7,10 +7,10 @@ import Empty from './components/NavComponents/Empty';
 import Trends from './components/layout/Trends';
 import SpecificTweet from './components/layout/SpecificTweet';
 
-const Main = (props) => {
+const Main = () => {
   return (
     <div className='Main'>
-      <Navbar props={props} />
+      <Navbar />
       <div className='centr'>
         <Switch>
           <Route exact path='/home' component={Home} />
