@@ -30,7 +30,6 @@ export const addComment = (comment) => (dispatch, getState) => {
     .post(`${url}/tweet/comment/`, comment, config)
     .then((res) => {
       dispatch({ type: CREATE_COMMENT, payload: res.data });
-      console.log(res.data);
     })
     .catch((err) => {
       dispatch({ type: ADD_ERROR, payload: err.response.data });
