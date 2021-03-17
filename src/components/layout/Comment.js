@@ -11,7 +11,7 @@ const Comment = ({ comment }) => {
       />
       <div className='container'>
         <span className='username'>{comment.username}</span>
-        <div>{comment.body}</div>
+        <div className='user-text'>{comment.body}</div>
       </div>
       <div className='additional'>
         <div id='time'>{moment(comment.created).format('MMM D')}</div>
