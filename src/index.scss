@@ -4,8 +4,8 @@
 $maincolor: #228cf5;
 $hovercolor: #e9f3fe;
 $gray: #cbd6e2;
-$backgroundcolor: #fff;
-$textColor: #000;
+$backgroundcolor: #000;
+$textColor: #fff;
 * {
   font-family: 'Lato';
 }
@@ -39,6 +39,7 @@ $textColor: #000;
 
       ul {
         padding: 0;
+        color: $textColor;
         a {
           text-decoration: none;
           color: inherit;
@@ -56,6 +57,8 @@ $textColor: #000;
           border-radius: 40px;
           margin-top: 10px;
           cursor: pointer;
+          background: transparent;
+          // color: $textColor;
 
           &:hover {
             background: $hovercolor;
@@ -70,7 +73,7 @@ $textColor: #000;
           }
 
           i {
-            color: #25292e;
+            color: $textColor;
             border: #25292e;
             font-size: 25px !important;
             margin-right: 15px;
@@ -104,7 +107,7 @@ $textColor: #000;
         transform: translateX(-50%);
         display: none;
         border-radius: 3px;
-        background: inherit;
+        background: #fff;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
         & > div {
           border-bottom: 1px solid $gray;
@@ -149,12 +152,14 @@ $textColor: #000;
     }
     .Empty {
       div {
+        color: $textColor;
         margin-top: 20px;
         font-size: 20px;
       }
     }
 
     .TweetHome {
+      color: $textColor;
       border-bottom: 1px solid $gray;
 
       & > div {
@@ -166,6 +171,7 @@ $textColor: #000;
 
       form {
         textarea {
+          color: $textColor;
           background: transparent;
           margin-left: 30px;
           width: 80%;
@@ -187,6 +193,7 @@ $textColor: #000;
       border-right: 1px solid $gray;
       > .container {
         font-size: 20px;
+        color: $textColor;
         border-bottom: 1px solid $gray;
       }
     }
@@ -196,6 +203,9 @@ $textColor: #000;
         padding: 0;
         border-top: 1px solid $gray;
       }
+    }
+    .SpecificTweet {
+      color: $textColor;
     }
   }
 }
@@ -218,6 +228,7 @@ $textColor: #000;
     top: 5px;
     margin-right: 5px;
     display: flex;
+    color: $textColor;
     div#time {
       opacity: 0.8;
     }
@@ -293,6 +304,7 @@ $textColor: #000;
 }
 
 .username {
+  color: $textColor;
   font-weight: 700;
 }
 
