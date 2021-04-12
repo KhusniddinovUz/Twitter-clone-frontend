@@ -1,29 +1,29 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
-import { changeNav } from '../../action/nav';
+import React from "react";
+import { useDispatch } from "react-redux";
+import { changeNav } from "../../action/nav";
 
 const Nav = ({ props, iconClass, name, activeClass }) => {
   const dispatch = useDispatch();
-  const className = 'd-flex align-items-center list-group-item';
+  const className = "d-flex align-items-center list-group-item";
   const onClick = (e) => {
     dispatch(changeNav(name));
-    if (e.target.tagName === 'LI') {
-      Array.from(document.getElementsByClassName('list-group-item')).forEach(
+    if (e.target.tagName === "LI") {
+      Array.from(document.getElementsByClassName("list-group-item")).forEach(
         (el) => (el.className = className)
       );
-      if (name === 'Home') {
+      if (name === "Home") {
         props.history.push(`/${name.toLowerCase()}`);
       } else {
-        props.history.push(`/home/${name.toLowerCase()}`);
+        props.history.push(`/${name.toLowerCase()}`);
       }
-    } else if (e.target.parentElement.tagName === 'LI') {
-      Array.from(document.getElementsByClassName('list-group-item')).forEach(
+    } else if (e.target.parentElement.tagName === "LI") {
+      Array.from(document.getElementsByClassName("list-group-item")).forEach(
         (el) => (el.className = className)
       );
-      if (name === 'Home') {
+      if (name === "Home") {
         props.history.push(`/${name.toLowerCase()}`);
       } else {
-        props.history.push(`/home/${name.toLowerCase()}`);
+        props.history.push(`/${name.toLowerCase()}`);
       }
     }
   };
@@ -35,7 +35,7 @@ const Nav = ({ props, iconClass, name, activeClass }) => {
         className={`d-flex align-items-center list-group-item ${activeClass}`}
       >
         <i className={iconClass}></i>
-        <span className='d-none'>{name}</span>
+        <span className="d-none">{name}</span>
       </li>
       <br />
     </>
