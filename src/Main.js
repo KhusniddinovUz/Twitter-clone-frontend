@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, withRouter, Redirect } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Home from './components/NavComponents/Home';
 import Profile from './components/NavComponents/Profile';
@@ -11,6 +11,7 @@ const Main = (props) => {
   return (
     <div className='Main'>
       <Navbar />
+      {props.history.location.pathname === '/' && <Redirect to='/home' />}
       <div className='centr'>
         <Switch>
           <Route exact path='/home' component={Home} />
@@ -26,4 +27,4 @@ const Main = (props) => {
   );
 };
 
-export default Main;
+export default withRouter(Main);

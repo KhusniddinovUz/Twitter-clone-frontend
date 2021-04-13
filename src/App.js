@@ -8,9 +8,8 @@ import { loadTweets } from './action/tweet';
 import { getComments } from './action/comments';
 import Alerts from './components/layout/Alerts';
 import Main from './Main';
-import { withRouter } from 'react-router-dom';
 
-const App = (props) => {
+const App = () => {
   const dispatch = useDispatch();
   const auth = useSelector((state) => state.auth);
   useEffect(() => {
@@ -35,4 +34,4 @@ const App = (props) => {
   );
 };
 
-export default withRouter(App);
+export default App;
