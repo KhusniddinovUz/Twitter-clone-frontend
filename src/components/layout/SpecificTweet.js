@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Redirect } from 'react-router-dom';
 import Tweet from './Tweet';
 import { useSelector } from 'react-redux';
 import Comments from './Comments';
@@ -22,6 +22,9 @@ const SpecificTweet = (props) => {
       return tweets.shift();
     }
   });
+  if (!tweet) {
+    return <Redirect to='/notfound' />;
+  }
   return (
     <div className='SpecificTweet'>
       {tweet && <Tweet tweet={tweet} />}

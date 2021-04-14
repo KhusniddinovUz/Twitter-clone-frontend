@@ -21,6 +21,7 @@ const Main = (props) => {
           <Route exact path='/messages' component={Empty} />
           <Route exact path='/more' component={Empty} />
           <Route path='/home/tweet/:id' component={SpecificTweet} />
+          <Route exact path='/notfound' component={NotFound} />
           <Route component={NotFound} />
         </Switch>
       </div>
