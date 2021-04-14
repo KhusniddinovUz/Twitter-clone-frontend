@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import maintenance from './maintenance.jpg';
+import maintenance from './maintenance.png';
 
 const Empty = () => {
   const [imageLoaded, setImageLoader] = useState(false);
