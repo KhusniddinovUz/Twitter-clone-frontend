@@ -1,13 +1,13 @@
-import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import Login from './components/auth/Login';
-import Signup from './components/auth/Signup';
-import { Switch, Route, Redirect } from 'react-router-dom';
-import { loadUser } from './action/auth';
-import { loadTweets } from './action/tweet';
-import { getComments } from './action/comments';
-import Alerts from './components/layout/Alerts';
-import Main from './Main';
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import Login from "./components/auth/Login";
+import Signup from "./components/auth/Signup";
+import { Switch, Route, Redirect } from "react-router-dom";
+import { loadUser } from "./action/auth";
+import { loadTweets } from "./action/tweet";
+import { getComments } from "./action/comments";
+import Alerts from "./components/layout/Alerts";
+import Main from "./Main";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -16,18 +16,18 @@ const App = () => {
     dispatch(loadUser());
     if (auth.id) {
       dispatch(loadTweets());
-      dispatch(getComments('all'));
+      dispatch(getComments("all"));
     }
   }, [dispatch, auth.id]);
   return (
     <div>
-      <div className='App'>
+      <div className="App">
         <Alerts />
-        {!auth.isAuthenticated && <Redirect to='/login' />}
+        {!auth.isAuthenticated && <Redirect to="/login" />}
         <Switch>
-          <Route exact path='/login' component={Login} />
-          <Route exact path='/register' component={Signup} />
-          <Route path='/' component={Main} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/register" component={Signup} />
+          <Route path="/" component={Main} />
         </Switch>
       </div>
     </div>
