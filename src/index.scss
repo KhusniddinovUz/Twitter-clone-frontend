@@ -299,7 +299,7 @@ $textColor: #000;
   }
 
   &:hover {
-    background: #228cf5;
+    background: $maincolor;
     color: $hovercolor;
   }
 }
@@ -308,6 +308,7 @@ $textColor: #000;
   border-radius: 50%;
   width: 50px;
   height: 50px;
+  border: 3px solid $maincolor;
 }
 
 .username {
