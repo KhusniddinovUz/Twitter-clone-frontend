@@ -6,6 +6,7 @@ import Profile from './components/NavComponents/Profile';
 import Empty from './components/NavComponents/Empty';
 import Trends from './components/layout/Trends';
 import SpecificTweet from './components/layout/SpecificTweet';
+import NotFound from './components/layout/NotFound';
 
 const Main = (props) => {
   return (
@@ -20,6 +21,7 @@ const Main = (props) => {
           <Route exact path='/messages' component={Empty} />
           <Route exact path='/more' component={Empty} />
           <Route path='/home/tweet/:id' component={SpecificTweet} />
+          <Route component={NotFound} />
         </Switch>
       </div>
       <Trends />

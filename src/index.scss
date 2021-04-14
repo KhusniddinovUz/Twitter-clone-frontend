@@ -289,10 +289,17 @@ $textColor: #000;
 
 .butn {
   background-color: $maincolor;
-  color: #fff;
+  color: #fff !important;
   border-radius: 30px;
+  a {
+    color: #fff;
+    &:hover {
+      color: #fff;
+    }
+  }
 
   &:hover {
+    background: #228cf5;
     color: $hovercolor;
   }
 }
