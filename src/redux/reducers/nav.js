@@ -1,6 +1,6 @@
-import { CHANGE_NAV } from '../action/types';
+import { CHANGE_NAV } from "../action/types";
 const initialState = {
-  activeNav: 'Home',
+  activeNav: "Home",
 };
 
 const nav = (state = initialState, action) => {

@@ -1,13 +1,13 @@
-import axios from 'axios';
-import { GET_COMMENT, ADD_ERROR, CREATE_COMMENT } from './types';
-import { url } from '../components/data/url';
+import axios from "axios";
+import { GET_COMMENT, ADD_ERROR, CREATE_COMMENT } from "./types";
+import { url } from "../../components/data/url";
 
 //Getting comments of a specific tweet
 export const getComments = (id) => async (dispatch) => {
-  const token = localStorage.getItem('twitter-token');
+  const token = localStorage.getItem("twitter-token");
   const config = {
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
       Authorization: `Token ${token}`,
     },
   };
@@ -22,7 +22,7 @@ export const addComment = (comment) => (dispatch, getState) => {
   const token = getState().auth.token;
   const config = {
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
       Authorization: `Token ${token}`,
     },
   };

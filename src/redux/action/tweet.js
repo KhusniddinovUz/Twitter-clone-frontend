@@ -1,19 +1,19 @@
-import axios from 'axios';
+import axios from "axios";
 import {
   ADD_ERROR,
   TWEET_ADD,
   TWEET_DELETE,
   TWEET_LOAD,
   GET_OWN_TWEET,
-} from './types';
-import { url } from '../components/data/url';
+} from "./types";
+import { url } from "../../components/data/url";
 
 //Add Tweet
 export const addTweet = (tweet) => (dispatch, getState) => {
   const token = getState().auth.token;
   const config = {
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
       Authorization: `Token ${token}`,
     },
   };
@@ -22,7 +22,7 @@ export const addTweet = (tweet) => (dispatch, getState) => {
     .then((res) => {
       dispatch({
         type: ADD_ERROR,
-        payload: { tweetAdded: 'Tweet successfully added' },
+        payload: { tweetAdded: "Tweet successfully added" },
       });
       dispatch({ type: TWEET_ADD, payload: res.data });
     })
@@ -36,7 +36,7 @@ export const loadTweets = () => async (dispatch, getState) => {
   const token = getState().auth.token;
   const config = {
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
       Authorization: `Token ${token}`,
     },
   };
@@ -51,7 +51,7 @@ export const deleteTweet = (id) => (dispatch, getState) => {
   const token = getState().auth.token;
   const config = {
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
       Authorization: `Token ${token}`,
     },
   };
@@ -60,7 +60,7 @@ export const deleteTweet = (id) => (dispatch, getState) => {
     .then(() => {
       dispatch({
         type: ADD_ERROR,
-        payload: { deletedTweet: 'Tweet has been deleted' },
+        payload: { deletedTweet: "Tweet has been deleted" },
       });
       dispatch({ type: TWEET_DELETE, payload: id });
     })

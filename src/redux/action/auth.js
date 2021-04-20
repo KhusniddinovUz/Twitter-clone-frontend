@@ -1,16 +1,16 @@
-import axios from 'axios';
-import { url } from '../components/data/url';
+import axios from "axios";
+import { url } from "../../components/data/url";
 import {
   ADD_ERROR,
   LOGIN_SUCCESS,
   SIGNUP_SUCCESS,
   USER_LOADED,
   USER_NOTLOADED,
-} from '../action/types';
+} from "./types";
 
 //LoadUser
 export const loadUser = () => async (dispatch) => {
-  const token = localStorage.getItem('twitter-token');
+  const token = localStorage.getItem("twitter-token");
   const config = {
     headers: {
       Authorization: `Token ${token}`,
@@ -28,7 +28,7 @@ export const loadUser = () => async (dispatch) => {
 export const login = (user) => (dispatch) => {
   const config = {
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
   };
   axios
@@ -45,7 +45,7 @@ export const login = (user) => (dispatch) => {
 export const register = (user) => (dispatch) => {
   const config = {
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
   };
   axios

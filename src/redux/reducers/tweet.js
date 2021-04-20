@@ -3,7 +3,7 @@ import {
   TWEET_LOAD,
   TWEET_DELETE,
   GET_OWN_TWEET,
-} from '../action/types';
+} from "../action/types";
 const initialState = {
   tweets: [],
   owntweets: [],

@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import OwnerTweets from './OwnerTweets';
-import { getOwnTweets } from '../../action/tweet';
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import OwnerTweets from "./OwnerTweets";
+import { getOwnTweets } from "../../redux/action/tweet";
 
 const Profile = () => {
   const dispatch = useDispatch();
@@ -12,9 +12,9 @@ const Profile = () => {
     dispatch(getOwnTweets());
   }, [dispatch, tweets]);
   return (
-    <div className='Profile'>
-      <div className='container p-4 text-center'>
-        {auth.username} {ownTweets} {ownTweets === 1 ? 'tweet' : 'tweets'}
+    <div className="Profile">
+      <div className="container p-4 text-center">
+        {auth.username} {ownTweets} {ownTweets === 1 ? "tweet" : "tweets"}
       </div>
       <OwnerTweets />
     </div>

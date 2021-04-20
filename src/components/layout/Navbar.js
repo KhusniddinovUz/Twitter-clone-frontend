@@ -4,7 +4,7 @@ import AddTweetModal from "./AddTweetModal";
 import { nav } from "../data/nav";
 import { v4 } from "uuid";
 import { useSelector, useDispatch } from "react-redux";
-import { changeNav } from "../../action/nav";
+import { changeNav } from "../../redux/action/nav";
 import { withRouter } from "react-router-dom";
 
 const Navbar = (props) => {

@@ -3,9 +3,9 @@ import { useSelector, useDispatch } from "react-redux";
 import Login from "./components/auth/Login";
 import Signup from "./components/auth/Signup";
 import { Switch, Route, Redirect } from "react-router-dom";
-import { loadUser } from "./action/auth";
-import { loadTweets } from "./action/tweet";
-import { getComments } from "./action/comments";
+import { loadUser } from "./redux/action/auth";
+import { loadTweets } from "./redux/action/tweet";
+import { getComments } from "./redux/action/comments";
 import Alerts from "./components/layout/Alerts";
 import Main from "./Main";
 

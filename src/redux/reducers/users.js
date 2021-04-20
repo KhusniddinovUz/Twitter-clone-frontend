@@ -2,7 +2,7 @@ import {
   GET_LAST_USERS,
   SEARCH_USERS,
   CLEAR_SEARCH_USERS,
-} from '../action/types';
+} from "../action/types";
 
 const initialState = {
   lastusers: [],

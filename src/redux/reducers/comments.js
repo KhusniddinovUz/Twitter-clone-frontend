@@ -1,4 +1,4 @@
-import { GET_COMMENT, CREATE_COMMENT } from '../action/types';
+import { GET_COMMENT, CREATE_COMMENT } from "../action/types";
 const initialState = [];
 
 const comments = (state = initialState, action) => {

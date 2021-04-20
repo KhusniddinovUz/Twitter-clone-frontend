@@ -3,13 +3,13 @@ import {
   ADD_ERROR,
   SEARCH_USERS,
   CLEAR_SEARCH_USERS,
-} from './types';
-import axios from 'axios';
-import { url } from '../components/data/url';
+} from "./types";
+import axios from "axios";
+import { url } from "../../components/data/url";
 
 // Get last users
 export const getLastUsers = () => (dispatch) => {
-  const token = localStorage.getItem('twitter-token');
+  const token = localStorage.getItem("twitter-token");
   const config = {
     headers: {
       Authorization: `Token ${token}`,
@@ -27,7 +27,7 @@ export const getLastUsers = () => (dispatch) => {
 
 //Search users
 export const searchUsers = (name) => (dispatch) => {
-  const token = localStorage.getItem('twitter-token');
+  const token = localStorage.getItem("twitter-token");
   const config = {
     headers: {
       Authorization: `Token ${token}`,

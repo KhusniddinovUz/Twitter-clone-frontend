@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { changeNav } from "../../action/nav";
+import { changeNav } from "../../redux/action/nav";
 
 const Nav = ({ props, iconClass, name, activeClass }) => {
   const dispatch = useDispatch();

@@ -1,7 +1,7 @@
-import React from 'react';
-import { withAlert } from 'react-alert';
-import { useSelector, useDispatch } from 'react-redux';
-import { REMOVE_ERROR } from '../../action/types';
+import React from "react";
+import { withAlert } from "react-alert";
+import { useSelector, useDispatch } from "react-redux";
+import { REMOVE_ERROR } from "../../redux/action/types";
 
 const Alerts = (props) => {
   const dispatch = useDispatch();
