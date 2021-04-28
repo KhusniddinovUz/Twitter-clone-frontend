@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { withRouter, Redirect } from 'react-router-dom';
 import Tweet from './Tweet';
 import { useSelector } from 'react-redux';
@@ -14,6 +14,7 @@ const SpecificTweet = (props) => {
       return state.comments.filter((com) => `${com.tweet}` === tweet_id);
     } else return [];
   });
+
   const tweet = useSelector((state) => {
     if (state.tweet.tweets.length > 0) {
       let tweets = state.tweet.tweets.filter(
@@ -22,9 +23,12 @@ const SpecificTweet = (props) => {
       return tweets.shift();
     }
   });
-  if (!tweet) {
-    return <Redirect to='/notfound' />;
-  }
+  useEffect(() => {
+    if (!tweet) {
+      return <Redirect to='/notfound' />;
+    }
+  }, [tweet]);
+
   return (
     <div className='SpecificTweet'>
       {tweet && <Tweet tweet={tweet} />}
