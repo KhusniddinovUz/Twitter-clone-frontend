@@ -15,20 +15,12 @@ const SpecificTweet = (props) => {
     } else return [];
   });
 
-  const tweet = useSelector((state) => {
-    if (state.tweet.tweets.length > 0) {
-      let tweets = state.tweet.tweets.filter(
-        (tweet) => `${tweet.id}` === tweet_id
-      );
-      return tweets.shift();
-    }
-  });
-  useEffect(() => {
-    if (!tweet) {
-      return <Redirect to='/notfound' />;
-    }
-  }, [tweet]);
+  const tweets = useSelector((state) => state.tweet.tweets);
+  const tweet = tweets.filter((item) => item.id === Number(tweet_id))[0];
 
+  if (tweets.length > 0 && !tweet) {
+    return <Redirect to='/notfound' />;
+  }
   return (
     <div className='SpecificTweet'>
       {tweet && <Tweet tweet={tweet} />}
