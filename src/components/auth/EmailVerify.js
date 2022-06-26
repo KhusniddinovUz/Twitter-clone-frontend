@@ -1,20 +1,23 @@
-import { useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+import {useSelector} from "react-redux";
+import {Redirect} from "react-router-dom";
+import sent_email from './email_sent.png'
 
 const EmailVerify = (props) => {
   const auth = useSelector((state) => state.auth);
 
   if (auth.isVerified === true) {
-    return <Redirect to="/home" />;
+    return <Redirect to="/home"/>;
   }
   if (auth.isAuthenticated === false) {
-    return <Redirect to="/login" />;
+    return <Redirect to="/login"/>;
   }
   return (
-    <div>
-      Verification Email has been sent
-      <br />
-      Please, verify your account to continue
+    <div className='container text-center'>
+      <img src={sent_email} alt="sent email" width='400'/>
+      <p className='text-center'>
+        Verification Email has been sent.
+        Please, verify your account to continue
+      </p>
     </div>
   );
 };
