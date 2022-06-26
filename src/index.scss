@@ -1,0 +1,491 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+//Variables
+$maincolor: #228cf5;
+$hovercolor: #e9f3fe;
+$gray: #cbd6e2;
+$backgroundcolor: #fff;
+$textColor: #000;
+* {
+  font-family: 'Lato', serif;
+}
+
+#TweetNav {
+  text-decoration: none;
+  color: inherit;
+}
+
+.App {
+  background-color: $backgroundcolor;
+  .SignUp {
+    small {
+      opacity: 0.7;
+    }
+  }
+
+  .Main {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1.5fr;
+    .centr {
+      border-left: 1px solid $gray;
+      border-right: 1px solid $gray;
+    }
+
+    .Navbar {
+      position: sticky;
+      top: 0;
+      font-weight: 700;
+      height: 100vh;
+
+      ul {
+        padding: 0;
+        color: $textColor;
+        a {
+          text-decoration: none;
+          color: inherit;
+        }
+        .logo {
+          padding: 10px;
+          text-align: center;
+        }
+        li {
+          font-size: 20px;
+          border: none;
+          display: inline-block !important;
+          list-style-type: none;
+          padding: 10px 30px 10px 10px;
+          border-radius: 40px;
+          margin-top: 10px;
+          cursor: pointer;
+          background: transparent;
+          // color: $textColor;
+
+          &:hover {
+            background: $hovercolor;
+            color: $maincolor;
+
+            i {
+              color: $maincolor !important;
+            }
+            a {
+              color: $maincolor;
+            }
+          }
+
+          i {
+            color: $textColor;
+            border: #25292e;
+            font-size: 25px !important;
+            margin-right: 15px;
+            width: 30px;
+            height: 30px;
+          }
+          #twitter {
+            color: $maincolor;
+            border-radius: 50%;
+            margin: 0;
+
+            &:hover {
+              background: $hovercolor;
+            }
+          }
+
+          button {
+            width: 200px;
+            font-weight: 700;
+          }
+        }
+      }
+    }
+    .Trends {
+      position: sticky;
+      height: 100vh;
+      top: 0;
+      .FoundUsers {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        display: none;
+        border-radius: 3px;
+        background: #fff;
+        box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
+        & > div {
+          border-bottom: 1px solid $gray;
+        }
+      }
+      input {
+        border: none;
+        outline: none;
+        background: #ebeef0;
+        margin: auto;
+        border-radius: 30px;
+        padding: 10px 20px;
+        &::-webkit-search-cancel-button {
+          cursor: pointer;
+        }
+        &:focus ~ .FoundUsers {
+          display: block;
+        }
+      }
+      > div {
+        background: #ebeef0;
+        border-radius: 20px;
+        width: 70%;
+        font-size: 20px;
+        padding: 10px 30px;
+        font-weight: 700;
+        text-align: left;
+      }
+      #lastusers {
+        span {
+          border-bottom: 1px solid black;
+          display: block;
+        }
+        div {
+          border-bottom: 1px solid $gray;
+          padding: 10px;
+          &:last-child {
+            border: none;
+          }
+        }
+      }
+    }
+    .Empty {
+      div {
+        color: $textColor;
+        margin-top: 20px;
+        font-size: 20px;
+      }
+    }
+
+    .TweetHome {
+      color: $textColor;
+      border-bottom: 1px solid $gray;
+
+      & > div {
+        padding: 10px 20px;
+        font-size: 20px;
+        border-bottom: 1px solid $gray;
+        font-weight: 700;
+      }
+
+      form {
+        textarea {
+          color: $textColor;
+          background: transparent;
+          margin-left: 30px;
+          width: 80%;
+          resize: none;
+          border: none;
+          outline: none;
+          font-size: 20px;
+
+          &::placeholder {
+            color: $textColor;
+            font-size: 20px;
+            opacity: 0.6;
+          }
+        }
+      }
+    }
+
+    .Profile {
+      border-right: 1px solid $gray;
+      > .container {
+        font-size: 20px;
+        color: $textColor;
+        border-bottom: 1px solid $gray;
+      }
+    }
+
+    .Home {
+      .Feed {
+        padding: 0;
+        border-top: 1px solid $gray;
+      }
+    }
+    .SpecificTweet {
+      color: $textColor;
+    }
+  }
+}
+
+//Utility classes
+.Tweet {
+  width: 100%;
+  position: relative;
+  border-bottom: 1px solid $gray;
+  div.container {
+    div.user-text {
+      color: $textColor !important;
+      word-wrap: break-word;
+      word-break: break-all;
+    }
+  }
+  .additional {
+    position: absolute;
+    right: 0;
+    top: 5px;
+    margin-right: 5px;
+    display: flex;
+    color: $textColor;
+    div#time {
+      opacity: 0.8;
+    }
+    .TweetMore {
+      margin-left: 5px;
+      .dropleft {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        border: 1px solid transparent;
+        &:hover {
+          border: 1px solid $maincolor;
+        }
+        &:active {
+          background: $maincolor;
+          & > i {
+            color: $gray;
+          }
+        }
+        & > i {
+          margin: auto;
+          width: 100%;
+          height: 100%;
+          background: none;
+          color: $maincolor;
+          padding: 0;
+          border: none;
+          &::before {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+        }
+        .dropdown-menu {
+          span {
+            margin-bottom: 5px;
+            padding: 0 10px;
+            &:last-child {
+              margin-bottom: 0;
+            }
+            i {
+              margin-right: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.active-nav {
+  color: $maincolor !important;
+
+  i {
+    color: $maincolor !important;
+  }
+}
+
+.butn {
+  background-color: $maincolor;
+  color: #fff !important;
+  border-radius: 30px;
+  a {
+    color: #fff;
+    &:hover {
+      color: #fff;
+    }
+  }
+
+  &:hover {
+    background: $maincolor;
+    color: $hovercolor;
+  }
+}
+
+.profile-image {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  border: 3px solid $maincolor;
+}
+
+.username {
+  color: $textColor;
+  font-weight: 700;
+}
+
+.tweet-icon {
+  color: $gray;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 10px;
+
+  &:hover {
+    color: $maincolor;
+    background: $hovercolor;
+  }
+}
+
+.likeBtn {
+  color: red;
+
+  &:hover {
+    color: red !important;
+    background: #e3bdbd;
+  }
+}
+
+//Media Query
+@media (max-width: 699px) {
+  .AddCommentModal {
+    width: 300px !important;
+  }
+  .App {
+    .Main {
+      .Feed {
+        padding: 0 !important;
+      }
+      grid-template-columns: 1fr 8fr;
+      .TweetHome {
+        form {
+          > div {
+            padding: 0;
+            textarea {
+              margin-left: 15px !important;
+            }
+          }
+          img {
+            width: 50px;
+            height: 50px;
+          }
+          padding: 5px 10px !important;
+        }
+      }
+      .Tweet {
+        padding: 5px !important;
+        img {
+          width: 40px;
+          height: 40px;
+        }
+        #time {
+          display: none;
+        }
+      }
+      .Empty {
+        img {
+          width: 200px;
+        }
+      }
+      .Navbar {
+        ul {
+          width: 100% !important;
+          margin: 0;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          #twitter {
+            padding: 0;
+          }
+          li {
+            text-align: center;
+            padding: 5px;
+            width: 100%;
+            i {
+              margin: 0;
+            }
+          }
+        }
+      }
+      .Trends {
+        display: none;
+      }
+    }
+  }
+}
+@media (min-width: 700px) and (max-width: 992px) {
+  .App {
+    .SignUp {
+      width: 60%;
+    }
+    .Main {
+      .Trends {
+        #lastusers {
+          padding: 0;
+          span {
+            padding: 5px !important;
+            text-align: center;
+          }
+        }
+      }
+      grid-template-columns: 0.5fr 2fr 1.5fr;
+      .Navbar {
+        ul {
+          display: flex;
+          flex-direction: column;
+          li {
+            padding: 10px 0;
+            text-align: center;
+
+            i{
+              margin: 0;
+            }
+          }
+        }
+      }
+      .Empty {
+        img {
+          width: 300px;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 993px) and (max-width: 1199px) {
+  .App {
+    .SignUp {
+      width: 50%;
+    }
+    .Main {
+      .Navbar {
+        ul {
+          width: 90% !important;
+        }
+        li {
+          span {
+            display: inline !important;
+          }
+        }
+        button {
+          display: block !important;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .App {
+    .SignUp {
+      width: 40%;
+    }
+    .Main {
+      .Navbar {
+        ul {
+          li {
+            span {
+              display: inline !important;
+            }
+          }
+        }
+        button {
+          display: block !important;
+        }
+      }
+    }
+  }
+}
