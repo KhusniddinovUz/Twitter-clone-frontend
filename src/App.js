@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Login from "./components/auth/Login";
 import Signup from "./components/auth/Signup";
 import EmailVerify from "./components/auth/EmailVerify";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route, useHistory } from "react-router-dom";
 import { loadUser } from "./redux/action/auth";
 import { loadTweets } from "./redux/action/tweet";
 import { getComments } from "./redux/action/comments";
@@ -12,6 +12,7 @@ import Main from "./Main";
 
 const App = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const auth = useSelector((state) => state.auth);
   useEffect(() => {
     dispatch(loadUser());
@@ -20,14 +21,18 @@ const App = () => {
       dispatch(getComments("all"));
     }
   }, [dispatch, auth.id]);
+
+  useEffect(() => {
+    if (auth.isAuthenticated === false) {
+      history.push("/login");
+    } else if (auth.isVerified === false) {
+      history.push("/verify-email");
+    }
+  }, [history, auth.isAuthenticated, auth.isVerified]);
   return (
     <div>
       <div className="App">
         <Alerts />
-        {auth.isAuthenticated === false && <Redirect to="/login" />}
-        {auth.isVerified === false && auth.isAuthenticated === true && (
-          <Redirect to={"/verify-email/"} />
-        )}
         <Switch>
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Signup} />
