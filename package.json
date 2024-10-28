@@ -9,7 +9,6 @@
     "axios": "^0.21.1",
     "formik": "^2.2.9",
     "moment": "^2.29.1",
-    "node-sass": "^4.14.1",
     "react": "^17.0.1",
     "react-alert": "^7.0.2",
     "react-alert-template-basic": "^1.0.0",
@@ -21,6 +20,7 @@
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
+    "sass": "^1.80.4",
     "uuid": "^8.3.2",
     "web-vitals": "^0.2.4",
     "yup": "^0.32.9"
